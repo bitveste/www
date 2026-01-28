@@ -17956,7 +17956,7 @@ input[type=radio] {
 
 /** Footer Social Link **/
 .footer-social-link {
-	margin-bottom: 35px;
+	margin-bottom: 35px !important;
 	padding: 0;
 	list-style: none;
 }
