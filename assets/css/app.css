@@ -2712,10 +2712,16 @@ Creation date: 24/08/2018 05:51
 	display: none;
 }
 .site-header .astriol-burger-menu span {
-	background: #2c2c51;
+	background: #ffffff;
 	height: 2px;
 	display: block;
 	margin-left: auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.site-header.header-fixed.showed .astriol-burger-menu span {
+	background: #051441;
 }
 .site-header .astriol-burger-menu span:not(:last-child) {
 	margin-bottom: 5px;
@@ -9231,7 +9237,7 @@ Banner Main
 	color: #373d46;
 }
 .astriol__portfolio-items--two .astriol__portfolio .portfolio-info h3 a:hover {
-	color: #1abf68;
+	color: #2F2CD8;
 }
 .astriol__portfolio-items--two .astriol__portfolio .portfolio-info span {
 	margin: 0;
@@ -9429,13 +9435,13 @@ Banner Main
 	-webkit-transform: translateY(-50%);
 	    -ms-transform: translateY(-50%);
 	        transform: translateY(-50%);
-	color: #1cda0e;
+	color: #2F2CD8;
 }
 .portfolio__content-info .portfolio__category-inner .portfolio-category li a {
 	color: #6b6b7e;
 }
 .portfolio__content-info .portfolio__category-inner .portfolio-category li a:hover {
-	color: #1abf68;
+	color: #2F2CD8;
 }
 
 .portfolio-nav {
@@ -9477,7 +9483,7 @@ Banner Main
 }
 .portfolio-nav li:hover a,
 .portfolio-nav li:hover i {
-	color: #1abf68;
+	color: #2F2CD8;
 }
 
 .portfolio--releted-wrapper {
@@ -9527,7 +9533,7 @@ Banner Main
 	color: #2b2350;
 }
 .related-portfolio .portfolio-item .port-info h3 a:hover {
-	color: #1abf68;
+	color: #2F2CD8;
 }
 .related-portfolio .portfolio-item .port-info span {
 	color: #6b6b7e;
@@ -9570,7 +9576,7 @@ Banner Main
 }
 #related-portfolio .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active:before {
 	opacity: 1;
-	background: #1abf68;
+	background: #2F2CD8;
 }
 
 /*--------------------------------------------------------------
@@ -9702,7 +9708,7 @@ Banner Main
 .counter-box.style-three .count .counted,
 .counter-box.style-three .count span {
 	font-size: 50px;
-	color: #00c99c;
+	color: #2F2CD8;
 	margin-bottom: 10px;
 }
 .counter-box.style-three .count span {
@@ -9931,10 +9937,10 @@ Banner Main
 	background-color: rgba(147, 94, 255, 0.102);
 }
 .fun-fact.color--three .count-icon-container i {
-	color: #0bca06;
+	color: #2F2CD8;
 }
 .fun-fact.color--three .count-icon-container .circle-shape {
-	background-color: rgba(11, 202, 6, 0.102);
+	background-color: rgba(47, 44, 216, 0.102);
 }
 .fun-fact.color--four .count-icon-container i {
 	color: #ff782f;
@@ -9999,7 +10005,7 @@ Banner Main
 	color: #fb8c5c;
 }
 .comminity-count-item .fun-fact.color-two .count {
-	color: #70c315;
+	color: #2F2CD8;
 }
 .comminity-count-item .fun-fact.color-three .count {
 	color: #9360fc;
@@ -10008,7 +10014,7 @@ Banner Main
 	color: #fc5b93;
 }
 .comminity-count-item .fun-fact.color-five .count {
-	color: #11c296;
+	color: #2F2CD8;
 }
 
 /*--------------------------------------------------------------
@@ -10169,7 +10175,7 @@ Banner Main
 	    -ms-transform: translateY(-50%);
 	        transform: translateY(-50%);
 	font-size: 26px;
-	color: #00c99c;
+	color: #2F2CD8;
 }
 .faq .card .card-header .btn-link.collapsed:before {
 	content: "3";
@@ -10184,7 +10190,7 @@ Banner Main
 	margin-bottom: 0;
 }
 .faq .card.active .card-header .btn-link {
-	color: #00c99c;
+	color: #2F2CD8;
 }
 .faq.style-two .card .card-header .btn-link {
 	font-size: 16px;
@@ -10211,7 +10217,7 @@ Banner Main
 	margin-bottom: 10px;
 }
 .faq.style-three .card.active .card-header .btn-link {
-	color: #1abf68;
+	color: #2F2CD8;
 }
 .faq.style-three .card .card-body {
 	background: transparent;
@@ -10305,7 +10311,7 @@ Banner Main
 }
 /** Faq **/
 .faq-page {
-	padding: 120px 0;
+	padding: 60px 0;
 }
 
 .gp-faq-tabs {
@@ -10322,12 +10328,12 @@ Banner Main
 	font-size: 15px;
 	padding: 4px 20px 4px 40px;
 	color: #6b717c;
-	max-width: 200px;
+	max-width: 400px;
 	font-size: 15px;
 	font-weight: 500;
 }
 .gp-faq-tabs li a.active {
-	background-color: #1abf68;
+	background-color: #2F2CD8;
 	color: #fff;
 }
 
@@ -10386,7 +10392,7 @@ Banner Main
 }
 .featurelist i {
 	margin-right: 20px;
-	color: #1abf68;
+	color: #2F2CD8;
 	margin-right: 10px;
 }
 
@@ -10427,7 +10433,7 @@ Banner Main
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: rgba(26, 191, 104, 0.95);
+	background: rgba(47, 44, 216, 0.95);
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -10469,7 +10475,7 @@ Banner Main
 	transition: 0.3s ease-in-out;
 }
 .team-member .member-social li a {
-	color: #1abf68;
+	color: #2F2CD8;
 	display: block;
 	background: #fff;
 	border-radius: 50%;
@@ -10483,8 +10489,8 @@ Banner Main
 	-webkit-transform: translateY(-5px);
 	    -ms-transform: translateY(-5px);
 	        transform: translateY(-5px);
-	-webkit-box-shadow: 0px 20px 30px 0px rgba(77, 3, 21, 0.2);
-	        box-shadow: 0px 20px 30px 0px rgba(77, 3, 21, 0.2);
+	-webkit-box-shadow: 0px 20px 30px 0px rgba(47, 44, 216, 0.2);
+	        box-shadow: 0px 20px 30px 0px rgba(47, 44, 216, 0.2);
 }
 .team-member .member-info {
 	margin-top: 24px;
@@ -17617,11 +17623,11 @@ input[type=radio] {
 
 /* Contact Form Main */
 .contact-form-page {
-	padding: 120px 0;
+	padding: 60px 0;
 }
 @media (max-width: 991px) {
 	.contact-form-page {
-		padding: 80px 0;
+		padding: 60px 0;
 	}
 }
 

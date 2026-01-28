@@ -32,7 +32,8 @@
 
 	<!-- Google Web Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700,800%7CPoppins:300,400,500,600,700,800" rel="stylesheet">
-
+	<!-- Live Chat Script -->
+	<script src='//fw-cdn.com/15587516/6827418.js' chat='true'></script>
 </head>
 
 <body id="blog-version-1" class="blog-single" data-style="default">
@@ -854,16 +855,14 @@
 
 						<div class="col-lg-3 col-md-6">
 							<div class="widget footer-widget">
-								<h3 class="widget-title">Download</h3>
+								<h3 class="widget-title">Platform</h3>
 
 								<ul class="footer-menu">
-									<li><a href="#">Company</a></li>
-									<li><a href="#">Android App</a></li>
-									<li><a href="#">Ios App</a></li>
-									<li><a href="#">Desktop</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Partners</a></li>
-									<li><a href="#">Careers</a></li>
+									<li><a href="index.html#slider-tab">How It Works</a></li>
+									<li><a href="index.html#opportunities">Opportunities</a></li>
+									<li><a href="faq.html#settlement">Settlement Process</a></li>
+									<li><a href="faq.html#fees">Fees & Disclosure</a></li>
+									<li><a href="faq.html">FAQs</a></li>
 								</ul>
 							</div>
 							<!-- /.widget footer-widget -->
@@ -872,15 +871,12 @@
 
 						<div class="col-lg-3 col-md-6">
 							<div class="widget footer-widget">
-								<h3 class="widget-title">Quick Links</h3>
+								<h3 class="widget-title">Company</h3>
 
 								<ul class="footer-menu">
-									<li><a href="#">About Astriol</a></li>
-									<li><a href="#">Web Jobs</a></li>
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">Creative</a></li>
-									<li><a href="#">UI/UX</a></li>
-									<li><a href="#">Template</a></li>
+									<li><a href="about.html">About Bitveste</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="#" id="open-chat" style="cursor: pointer;">Support</a></li>
 								</ul>
 							</div>
 							<!-- /.widget footer-widget -->
@@ -889,15 +885,12 @@
 
 						<div class="col-lg-2 col-md-6">
 							<div class="widget footer-widget">
-								<h3 class="widget-title">Information</h3>
+								<h3 class="widget-title">Legal</h3>
 
 								<ul class="footer-menu">
-									<li><a href="#">Reporting</a></li>
-									<li><a href="#">Management </a></li>
-									<li><a href="#">Tracking </a></li>
-									<li><a href="#">Pricing </a></li>
-									<li><a href="#">Coinking </a></li>
-									<li><a href="#">Support </a></li>
+									<li><a href="privacy_policy.html">Privacy Policy</a></li>
+									<li><a href="terms_of_service.html">Terms of Service</a></li>
+									<li><a href="faq.html#risk-disclosure">Risk Disclosure</a></li>
 								</ul>
 							</div>
 							<!-- /.widget footer-widget -->
@@ -1218,6 +1211,21 @@ function renderRecentCommentsWidget(comments) {
 									}
 								});
 								</script>
+	<!-- Support Chat Script -->
+	<script>
+		function openFreshchat() {
+			if (window.fcWidget) {
+			window.fcWidget.open();
+			} else {
+			setTimeout(openFreshchat, 500);
+			}
+		}
+
+		document.getElementById('open-chat').addEventListener('click', function(e) {
+			e.preventDefault();
+			openFreshchat();
+		});
+	</script>
 </body>
 
 </html>
