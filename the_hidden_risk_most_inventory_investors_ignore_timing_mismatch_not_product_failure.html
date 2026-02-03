@@ -1244,6 +1244,234 @@ function renderRecentCommentsWidget(comments) {
 			openFreshchat();
 		});
 	</script>
+		 <!-- COOKIE CONSENT AND SETUP	-->
+	 		<script>
+				// Cookie Consent Management
+				class CookieConsent {
+					constructor() {
+						this.storageKey = 'bitveste_cookie_consent';
+						this.init();
+					}
+
+					init() {
+						if (!this.hasConsent()) {
+							this.showBanner();
+						}
+					}
+
+					hasConsent() {
+						return localStorage.getItem(this.storageKey) === 'accepted';
+					}
+
+					showBanner() {
+						const banner = document.createElement('div');
+						banner.id = 'cookie-consent-banner';
+						banner.innerHTML = `
+							<div class="cookie-consent-container">
+								<div class="cookie-consent-content">
+									<div class="cookie-icon">
+										<i class="fas fa-cookie-bite"></i>
+									</div>
+									<div class="cookie-text">
+										<h3 class="cookie-title">Cookie & Data Consent</h3>
+										<p class="cookie-description">
+											We use cookies and similar technologies to enhance your experience, analyze site traffic, and personalize content. By clicking "Accept All," you consent to our use of cookies as described in our <a href="privacy_policy.html" target="_blank">Privacy Policy</a> and <a href="terms_of_service.html" target="_blank">Terms of Service</a>.
+										</p>
+									</div>
+								</div>
+								<div class="cookie-consent-actions">
+									<button class="cookie-btn cookie-btn-settings" id="cookie-settings-btn">
+										<i class="fas fa-sliders-h"></i> Settings
+									</button>
+									<button class="cookie-btn cookie-btn-reject" id="cookie-reject-btn">
+										Reject
+									</button>
+									<button class="cookie-btn cookie-btn-accept" id="cookie-accept-btn">
+										Accept All
+									</button>
+								</div>
+							</div>
+						`;
+						document.body.appendChild(banner);
+						this.attachEventListeners();
+						this.showModal();
+					}
+
+					attachEventListeners() {
+						document.getElementById('cookie-accept-btn').addEventListener('click', () => {
+							this.acceptConsent();
+						});
+
+						document.getElementById('cookie-reject-btn').addEventListener('click', () => {
+							this.rejectConsent();
+						});
+
+						document.getElementById('cookie-settings-btn').addEventListener('click', () => {
+							this.showSettingsModal();
+						});
+					}
+
+					acceptConsent() {
+						localStorage.setItem(this.storageKey, 'accepted');
+						localStorage.setItem('bitveste_analytics_consent', 'true');
+						localStorage.setItem('bitveste_marketing_consent', 'true');
+						this.closeBanner();
+						this.loadAnalytics();
+					}
+
+					rejectConsent() {
+						localStorage.setItem(this.storageKey, 'rejected');
+						localStorage.setItem('bitveste_analytics_consent', 'false');
+						localStorage.setItem('bitveste_marketing_consent', 'false');
+						this.closeBanner();
+					}
+
+					closeBanner() {
+						const banner = document.getElementById('cookie-consent-banner');
+						if (banner) {
+							banner.classList.add('cookie-fade-out');
+							setTimeout(() => banner.remove(), 300);
+						}
+						const modal = document.getElementById('cookie-settings-modal');
+						if (modal) {
+							modal.remove();
+						}
+					}
+
+					showModal() {
+						const banner = document.getElementById('cookie-consent-banner');
+						if (banner) {
+							setTimeout(() => {
+								banner.classList.add('cookie-show');
+							}, 100);
+						}
+					}
+
+					showSettingsModal() {
+						let modal = document.getElementById('cookie-settings-modal');
+						if (!modal) {
+							modal = document.createElement('div');
+							modal.id = 'cookie-settings-modal';
+							modal.innerHTML = `
+								<div class="cookie-modal-overlay"></div>
+								<div class="cookie-modal">
+									<div class="cookie-modal-header">
+										<h2>Cookie Preferences</h2>
+										<button class="cookie-modal-close" id="cookie-modal-close">
+											<i class="fas fa-times"></i>
+										</button>
+									</div>
+									<div class="cookie-modal-body">
+										<div class="cookie-preference-group">
+											<div class="preference-header">
+												<h3>Essential Cookies</h3>
+												<span class="badge-required">Required</span>
+											</div>
+											<p class="preference-description">
+												Essential cookies help make the website functional and secure. These cannot be disabled.
+											</p>
+											<label class="cookie-toggle">
+												<input type="checkbox" checked disabled>
+												<span class="toggle-switch"></span>
+											</label>
+										</div>
+
+										<div class="cookie-preference-group">
+											<div class="preference-header">
+												<h3>Analytics Cookies</h3>
+											</div>
+											<p class="preference-description">
+												Analytics cookies help us understand how visitors use our website and improve performance.
+											</p>
+											<label class="cookie-toggle">
+												<input type="checkbox" id="analytics-toggle" checked>
+												<span class="toggle-switch"></span>
+											</label>
+										</div>
+
+										<div class="cookie-preference-group">
+											<div class="preference-header">
+												<h3>Marketing Cookies</h3>
+											</div>
+											<p class="preference-description">
+												Marketing cookies are used to deliver relevant advertisements and track campaign effectiveness.
+											</p>
+											<label class="cookie-toggle">
+												<input type="checkbox" id="marketing-toggle" checked>
+												<span class="toggle-switch"></span>
+											</label>
+										</div>
+									</div>
+									<div class="cookie-modal-footer">
+										<button class="cookie-btn cookie-btn-reject" id="cookie-modal-reject">
+											Reject All
+										</button>
+										<button class="cookie-btn cookie-btn-accept" id="cookie-modal-save">
+											Save and Apply Preferences
+										</button>
+									</div>
+								</div>
+							`;
+							document.body.appendChild(modal);
+							this.attachModalListeners();
+						}
+						modal.classList.add('cookie-modal-show');
+					}
+
+					attachModalListeners() {
+						document.getElementById('cookie-modal-close').addEventListener('click', () => {
+							this.closeSettingsModal();
+						});
+
+						document.getElementById('cookie-modal-reject').addEventListener('click', () => {
+							this.rejectConsent();
+						});
+
+						document.getElementById('cookie-modal-save').addEventListener('click', () => {
+							const analyticsConsent = document.getElementById('analytics-toggle').checked;
+							const marketingConsent = document.getElementById('marketing-toggle').checked;
+							
+							localStorage.setItem(this.storageKey, 'accepted');
+							localStorage.setItem('bitveste_analytics_consent', analyticsConsent);
+							localStorage.setItem('bitveste_marketing_consent', marketingConsent);
+							
+							this.closeSettingsModal();
+							this.closeBanner();
+							if (analyticsConsent) this.loadAnalytics();
+						});
+
+						document.querySelector('.cookie-modal-overlay').addEventListener('click', () => {
+							this.closeSettingsModal();
+						});
+					}
+
+					closeSettingsModal() {
+						const modal = document.getElementById('cookie-settings-modal');
+						if (modal) {
+							modal.classList.remove('cookie-modal-show');
+							setTimeout(() => modal.remove(), 300);
+						}
+					}
+
+					loadAnalytics() {
+						// Load Google Analytics and other tracking scripts
+						if (window.gtag) {
+							gtag('consent', 'update', {
+								'analytics_storage': 'granted'
+							});
+						}
+					}
+				}
+
+				// Initialize on DOM ready
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', () => {
+						new CookieConsent();
+					});
+				} else {
+					new CookieConsent();
+				}
+			</script>
 </body>
 
 </html>
