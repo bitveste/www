@@ -19054,14 +19054,14 @@ mark {
 					margin: 0 0 8px 0;
 					font-size: 16px;
 					font-weight: 600;
-					color: #ffffff;
+					color: #ffffff !important;
 					font-family: 'Poppins', sans-serif;
 				}
 
 				.cookie-description {
 					margin: 0;
 					font-size: 14px;
-					color: #b0b0b0;
+					color: #b0b0b0 !important;
 					line-height: 1.5;
 					font-family: 'Poppins', sans-serif;
 				}
